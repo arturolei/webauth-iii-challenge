@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken'); // installed this library
+const jwt = require('jsonwebtoken'); 
 const secrets = require('../config/secrets.js');
 const Users = require('../users/users-model.js');
 
@@ -41,19 +41,18 @@ router.post('/login', (req, res) => {
 
 function generateToken(user) {
   const payload = {
-    subject: user.id, // sub in payload is what the token is about
+    subject: user.id, 
+    //why not, probably not a great idea to put it here but... 
     username: user.username,
     department: user.department
-    // ...otherData
   };
 
   const options = {
     expiresIn: '1d', 
-    // show other available options in the library's documentation
   };
 
-  // extract the secret away so it can be required and used where needed
-  return jwt.sign(payload, secrets.jwtSecret, options); // this method is synchronous
+
+  return jwt.sign(payload, secrets.jwtSecret, options); 
 }
 
 module.exports = router;
