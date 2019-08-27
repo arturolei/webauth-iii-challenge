@@ -1,3 +1,3 @@
 module.exports = {
-    jwtSecret: process.env.JWT_SECRET || 'add a third table for many to many',
+    jwtSecret: process.env.JWT_SECRET || 'the real secret ingredient is... LSD!',
   };
